@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0e1013;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2f3a;
+  border-radius: 999px;
+}
+
+:focus-visible {
+  outline: 2px solid #5eead4;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Vertical trace / connector line that threads through the page,
+   echoing the "connecting systems" thread of the resume content. */
+.trace {
+  position: relative;
+}
+.trace::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #2a2f3a 8%, #2a2f3a 92%, transparent);
+}
+.trace-node {
+  position: absolute;
+  left: -4.5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #0e1013;
+  border: 1.5px solid #5eead4;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
